@@ -294,7 +294,7 @@ class AddTokenPanel extends Component {
             color="primary" 
             variant="contained" 
             style={buttonStyles}
-            disabled={tokenBalance < 1 || (approvalTx && approvalTx.length > 0)}
+            disabled={!tokenBalance || (approvalTx && approvalTx.length > 0)}
           ><CheckCirleIcon style={iconStyles}/>Step 2: Approve Transfer of QBE Balance
           </Button>
 
