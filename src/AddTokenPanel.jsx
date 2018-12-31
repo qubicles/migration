@@ -9,11 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import { Message } from 'semantic-ui-react';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import SendIcon from '@material-ui/icons/Send';
 import CheckCirleIcon from '@material-ui/icons/CheckCircle';
-import DownloadMetaMaskButton from './DownloadMetaMaskButton';
 import Eth from 'ethjs-query';
 import queryString from 'querystringify'
 import blackHoleContract from './BlackHoleEosAccount.json';
@@ -148,7 +146,7 @@ class AddTokenPanel extends Component {
     let error
     if (eosAccountExists === false) {
       error = <p className="errorMessage">
-        This account does not exist on the Telos blockchain. Please verify your entry and try again. Make sure this is the correct account - action is irreversible!
+        This account does not exist on the Telos blockchain. Make sure this is the correct account and that you have its private keys, as this action cannot be reversed once submitted!
       </p>
     }
 
@@ -181,6 +179,10 @@ class AddTokenPanel extends Component {
       marginLeft: '10px',
       marginRight: '10px',
       width: '80%',
+    };
+    const spacingStyles = {
+      margin: '10px',
+      width: '80%'
     };
 
 
@@ -227,6 +229,15 @@ class AddTokenPanel extends Component {
 
         <div className="App-actions">
           <Button
+          variant="outlined"
+          color="secondary"
+          onClick={() => {
+            window.location.href = 'https://www.youtube.com/watch?v=rsJM51D-KA8';
+          }}>
+          Watch: How to Create a Free Telos EOS.IO Account
+          </Button>
+          
+          <Button
             onClick={() => {
               window.location.href = 'https://telos.miami#sqrl';
             }}
@@ -239,7 +250,7 @@ class AddTokenPanel extends Component {
           
           <TextField
             id="eosAccountName"
-            label="Enter Telos Account Name"
+            label="Enter Your Newly Created Telos Account Name Here"
             style={fieldStyles}
             value={this.state.eosAccountName}
             onChange={this.handleChange('eosAccountName')}
@@ -289,14 +300,11 @@ class AddTokenPanel extends Component {
             color="primary" 
             variant="contained" 
             style={buttonStyles}
-            disabled={tokenBalance < 1 || (transferTx && transferTx.length > 0)}
+            disabled={tokenBalance < 1 || (transferTx && transferTx.length > 0) 
+              || (!approvalTx) || (!eosAccountName) || (eosAccountName && error)}
           ><SendIcon style={iconStyles}/>Step 3: Transfer QBE Token to Telos
-          </Button>
-
-        </div>
-
-        <div className="spacer"></div>
-
+        </Button>
+        
         <Typography gutterBottom style={typoStyles}>
           {`
             To learn how to use our Sqrl wallet, please visit our Resources page at.
@@ -304,16 +312,22 @@ class AddTokenPanel extends Component {
         </Typography>
         
         <Button
+        variant="outlined"
+        color="secondary"
+        styles={spacingStyles}
         onClick={() => {
           window.location.href = 'https://telos.miami/resources';
         }}>
         www.telos.miami/resources
         </Button>
 
-        
+        <p>&nbsp;</p>
+
         <a className="footer-banner">
           <img src="https://qubicles.io/wp-content/uploads/2018/11/Qubicles-logo-bg.png" alt="logo" />
         </a>
+
+        </div>
         
       </div>
     )
