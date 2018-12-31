@@ -1,0 +1,53 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+.footer-banner {
+
+}
+
+.footer-banner img {
+  width:100%;
+  border-radius: 0 0 2px 0;
+  height: 140px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.App header {
+  background: white;
+}
+
+.App header h1 {
+  color: black;
+}
+
+img.logo {
+  width: 100px;
+  border-radius: 50px;
+}
+
+div.values {
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin:10px;
+}
+
+.spacer {
+  flex: 1 0 auto;
+}
+
+.my-form {
+  display: flex;
+  flex-direction: column;
+}
