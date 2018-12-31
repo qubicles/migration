@@ -30,8 +30,8 @@ const telosAPINode = 'https://api.eos.miami';
 /*
  * testnet info
  */ 
-const qbeAddress = '0xf5ec80b12c503ac94a49894f2174c79a73f8f0ec';
-const blackHoleAddress = '0x6c78ad4fe757e0f631bb57ee9f7afbbb809e81e0';
+const qbeAddress = '0xf181a7d8f406190f066db0e92c0d8daeb29878de';
+const blackHoleAddress = '0x95b1544961253c6b21e0f79e38fe6026abab30c8';
 const telosChainId = 'e17615decaecd202a365f4c029f206eee98511979de8a5756317e2469f2289e3';
 const telosAPINode = 'https://testnet.eos.miami';
 
