@@ -315,7 +315,7 @@ class AddTokenPanel extends Component {
             color="primary" 
             variant="contained" 
             style={buttonStyles}
-            disabled={tokenBalance < 1 || (transferTx && transferTx.length > 0) 
+            disabled={!tokenBalance || (transferTx && transferTx.length > 0) 
               || (!approvalTx) || (!eosAccountName) || (eosAccountName && error)}
           ><SendIcon style={iconStyles}/>Step 3: Transfer QBE Token to Telos
         </Button>
