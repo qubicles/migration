@@ -18,9 +18,22 @@ import blackHoleContract from './BlackHoleEosAccount.json';
 import erc20Contract from './ERC20Token.json';
 import eos from './eos';
 
-//const qbeAddress = '0xc029ba3dc12e1834571e821d94a07de0a01138ea'; // mainnet
-const qbeAddress = '0xb0ed4df3afb04a0d96354411a9d1c3c7a85b4b4a'; // testnet
+/*
+ * mainnet info
+ *
+const qbeAddress = '0xc029ba3dc12e1834571e821d94a07de0a01138ea';
 const blackHoleAddress = '0xada1f462d2d9a52012dde5652cfcd188c312e72a';
+const telosChainId = '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11';
+const telosAPINode = 'https://api.eos.miami';
+*/
+
+/*
+ * testnet info
+ */ 
+const qbeAddress = '0xf5ec80b12c503ac94a49894f2174c79a73f8f0ec';
+const blackHoleAddress = '0x6c78ad4fe757e0f631bb57ee9f7afbbb809e81e0';
+const telosChainId = 'e17615decaecd202a365f4c029f206eee98511979de8a5756317e2469f2289e3';
+const telosAPINode = 'https://testnet.eos.miami';
 
 class AddTokenPanel extends Component {
 
@@ -108,12 +121,12 @@ class AddTokenPanel extends Component {
 
     const config = {
       authorization: undefined,
-      chainId: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
+      chainId: telosChainId,
       broadcast: true,
       verbose: false,
       expireInSeconds: 120,
       forceActionDataHex: false,
-      httpEndpoint: 'https://api.eos.miami'
+      httpEndpoint: telosAPINode
     };
 
     eos(config).getAccount(event.target.value).then((tx) => {
@@ -304,7 +317,7 @@ class AddTokenPanel extends Component {
               || (!approvalTx) || (!eosAccountName) || (eosAccountName && error)}
           ><SendIcon style={iconStyles}/>Step 3: Transfer QBE Token to Telos
         </Button>
-        
+
         <Typography gutterBottom style={typoStyles}>
           {`
             To learn how to use our Sqrl wallet, please visit our Resources page at.
