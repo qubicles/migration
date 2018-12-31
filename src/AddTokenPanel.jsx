@@ -30,8 +30,8 @@ const telosAPINode = 'https://api.eos.miami';
 /*
  * testnet info
  */ 
-const qbeAddress = '0xf181a7d8f406190f066db0e92c0d8daeb29878de';
-const blackHoleAddress = '0x95b1544961253c6b21e0f79e38fe6026abab30c8';
+const qbeAddress = '0x317dcde81712d45e38edb4440fc794ae12be084f';
+const blackHoleAddress = '0xe22e12387b0bd53eeaaca7a3587c026412312079';
 const telosChainId = 'e17615decaecd202a365f4c029f206eee98511979de8a5756317e2469f2289e3';
 const telosAPINode = 'https://testnet.eos.miami';
 
@@ -41,7 +41,7 @@ class AddTokenPanel extends Component {
     const {
       tokenName = 'Qubicles',
         tokenSymbol = 'QBE',
-        tokenDecimals = 18,
+        tokenDecimals = 4,
         tokenAddress = qbeAddress,
         tokenImage = 'https://qubicles.io/wp-content/uploads/2018/12/Icon-Blue-bg.png',
         tokenNet = '1',
@@ -107,8 +107,10 @@ class AddTokenPanel extends Component {
       contract.balanceOf(accounts[0], (error, balance) => {
         contract.decimals((error, decimals) => {
           this.setState({ tokenBalanceWei: balance })
+          console.log('wei balance:',balance)
           balance = balance.div(10**decimals);
           this.setState({ tokenBalance: balance.toString() })
+          console.log('balance:', balance)
         });
       });
     })
