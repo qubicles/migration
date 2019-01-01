@@ -21,21 +21,20 @@ import eos from './eos';
 /*
  * mainnet info
  *
- 
+ */
 const qbeAddress = '0xc029ba3dc12e1834571e821d94a07de0a01138ea';
-const blackHoleAddress = '0xada1f462d2d9a52012dde5652cfcd188c312e72a';
+const blackHoleAddress = '0x319db3af64ac077d52ce031394b963213f5ff828';
 const telosChainId = '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11';
 const telosAPINode = 'https://api.eos.miami';
-*/
 
 /*
  * testnet info
- * */
+ * 
 const qbeAddress = '0x597022a19441066cb353e634005cf80e99b13bc1';
 const blackHoleAddress = '0xfffb66ec4a5fabb7735bfeb7e4fe0e6f8c1ba631';
 const telosChainId = 'e17615decaecd202a365f4c029f206eee98511979de8a5756317e2469f2289e3';
 const telosAPINode = 'https://testnet.eos.miami';
-
+*/
 
 class AddTokenPanel extends Component {
 
@@ -43,7 +42,7 @@ class AddTokenPanel extends Component {
     const {
       tokenName = 'Qubicles',
         tokenSymbol = 'QBE',
-        tokenDecimals = 4,
+        tokenDecimals = 18,
         tokenAddress = qbeAddress,
         tokenImage = 'https://qubicles.io/wp-content/uploads/2018/12/Icon-Blue-bg.png',
         tokenNet = '1',
@@ -216,26 +215,26 @@ class AddTokenPanel extends Component {
         <Table>
           <TableBody>
             <TableRow>
-              <TableCell>Account</TableCell>
+              <TableCell><strong>Account</strong></TableCell>
               <TableCell>{accountAddress}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Token</TableCell>
+              <TableCell><strong>Token</strong></TableCell>
               <TableCell>{tokenName}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Current Balance</TableCell>
+              <TableCell><strong>Current Balance</strong></TableCell>
               <TableCell>{tokenBalance} {tokenSymbol}</TableCell>
             </TableRow>
             {(approvalTx && approvalTx.length > 0) ?
                 <TableRow>
-                  <TableCell>Approval Confirmation</TableCell>
+                  <TableCell><strong>Approval Confirmation</strong></TableCell>
                   <TableCell styles={rowStyles}><a href={approvalTx} target='_blank'>{approvalTx}</a></TableCell>
                 </TableRow>
             : ''}
             {(transferTx && transferTx.length > 0) ?
               <TableRow>
-                <TableCell>Transfer Confirmation</TableCell>
+                <TableCell><strong>Transfer Confirmation</strong></TableCell>
                 <TableCell styles={rowStyles}><a href={transferTx} target='_blank'>{transferTx}</a></TableCell>
               </TableRow>
             : ''}
@@ -247,14 +246,14 @@ class AddTokenPanel extends Component {
           variant="outlined"
           color="secondary"
           onClick={() => {
-            window.location.href = 'https://www.youtube.com/watch?v=rsJM51D-KA8';
+            window.open('https://www.youtube.com/watch?v=rsJM51D-KA8', '_blank')
           }}>
           Watch: How to Create a Free Telos EOS.IO Account
           </Button>
           
           <Button
             onClick={() => {
-              window.location.href = 'https://telos.miami#sqrl';
+              window.open('https://telos.miami#sqrl', '_blank')
             }}
             color="primary" 
             variant="contained" 
@@ -303,10 +302,10 @@ class AddTokenPanel extends Component {
               // get blackhole contract and teleport token
               let oracleContract = window.web3.eth.contract(blackHoleContract.abi).at(blackHoleAddress);
               oracleContract.teleport(eosAccountName, {from:accountAddress}, (error, result) => {
+                this.updateNet();
                 if (result) {
                   this.setState({ transferTx: 'https://etherscan.io/tx/' + result.toString() })
                   console.log ('teleported:', result)
-                  this.updateNet();
                 } else if (error) {
                   console.log (error.toString())
                 }
@@ -331,7 +330,7 @@ class AddTokenPanel extends Component {
         color="secondary"
         styles={spacingStyles}
         onClick={() => {
-          window.location.href = 'https://telos.miami/resources';
+          window.open('https://telos.miami/resources', '_blank');
         }}>
         www.telos.miami/resources
         </Button>
