@@ -21,6 +21,7 @@ import eos from './eos';
 /*
  * mainnet info
  *
+ 
 const qbeAddress = '0xc029ba3dc12e1834571e821d94a07de0a01138ea';
 const blackHoleAddress = '0xada1f462d2d9a52012dde5652cfcd188c312e72a';
 const telosChainId = '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11';
@@ -29,11 +30,12 @@ const telosAPINode = 'https://api.eos.miami';
 
 /*
  * testnet info
- */ 
-const qbeAddress = '0x317dcde81712d45e38edb4440fc794ae12be084f';
-const blackHoleAddress = '0xe22e12387b0bd53eeaaca7a3587c026412312079';
+ * */
+const qbeAddress = '0x597022a19441066cb353e634005cf80e99b13bc1';
+const blackHoleAddress = '0xfffb66ec4a5fabb7735bfeb7e4fe0e6f8c1ba631';
 const telosChainId = 'e17615decaecd202a365f4c029f206eee98511979de8a5756317e2469f2289e3';
 const telosAPINode = 'https://testnet.eos.miami';
+
 
 class AddTokenPanel extends Component {
 
@@ -107,10 +109,8 @@ class AddTokenPanel extends Component {
       contract.balanceOf(accounts[0], (error, balance) => {
         contract.decimals((error, decimals) => {
           this.setState({ tokenBalanceWei: balance })
-          console.log('wei balance:',balance)
           balance = balance.div(10**decimals);
           this.setState({ tokenBalance: balance.toString() })
-          console.log('balance:', balance)
         });
       });
     })
@@ -172,9 +172,9 @@ class AddTokenPanel extends Component {
       }
     });
 
-    /*if (tokenNet !== net) {
+    if (tokenNet !== net) {
       return <SwitchNetworkNotice net={net} tokenNet={tokenNet}/>
-    }*/
+    }
 
     const buttonStyles = {
       marginTop: '20px',
