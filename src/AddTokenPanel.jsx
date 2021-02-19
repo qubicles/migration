@@ -208,8 +208,8 @@ class AddTokenPanel extends Component {
         </header>
         <Typography gutterBottom style={typoStyles}>
           {`
-            Use this migration tool to securely and easily transfer your Qubicle tokens from Ethereum to the Telos chain of EOS.IO. 
-            This requires you to have MetaMask configured with access to your account where your QBE tokens are kept.
+            Use this migration tool to securely and easily transfer your Qubicle tokens from Ethereum to the Telos blockchain. 
+            This requires you to have MetaMask configured with access to your account where your Ethereum-based QBE tokens are kept.
           `}
         </Typography>
         <Table>
@@ -248,12 +248,12 @@ class AddTokenPanel extends Component {
           onClick={() => {
             window.open('https://www.youtube.com/watch?v=rsJM51D-KA8', '_blank')
           }}>
-          Watch: How to Create a Free Telos EOS.IO Account
+          Watch: How to Create a Free Telos Account
           </Button>
           
           <Button
             onClick={() => {
-              window.open('https://telos.miami#sqrl', '_blank')
+              window.open('https://sqrlwallet.io', '_blank')
             }}
             color="primary" 
             variant="contained" 
@@ -330,9 +330,9 @@ class AddTokenPanel extends Component {
         color="secondary"
         styles={spacingStyles}
         onClick={() => {
-          window.open('https://telos.miami/resources', '_blank');
+          window.open('https://telos.net/resources', '_blank');
         }}>
-        www.telos.miami/resources
+        telos.net/resources
         </Button>
 
         <p>&nbsp;</p>
