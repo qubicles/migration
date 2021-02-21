@@ -384,21 +384,14 @@
   "ast": {
     "absolutePath": "/Users/mwilliams/Google Drive/Projects/PodOne/Technology/eos21/blackhole/contracts/TestERC20Token.sol",
     "exportedSymbols": {
-      "ERC20Token": [
-        520
-      ]
+      "ERC20Token": [520]
     },
     "id": 521,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 498,
-        "literals": [
-          "solidity",
-          "^",
-          "0.4",
-          ".22"
-        ],
+        "literals": ["solidity", "^", "0.4", ".22"],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
       },
@@ -434,29 +427,12 @@
             "src": "83:12:5"
           }
         ],
-        "contractDependencies": [
-          549,
-          809,
-          603,
-          769,
-          1036,
-          1093,
-          1268
-        ],
+        "contractDependencies": [549, 809, 603, 769, 1036, 1093, 1268],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 520,
-        "linearizedBaseContracts": [
-          520,
-          1268,
-          1093,
-          603,
-          1036,
-          769,
-          809,
-          549
-        ],
+        "linearizedBaseContracts": [520, 1268, 1093, 603, 1036, 769, 809, 549],
         "name": "ERC20Token",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -682,21 +658,14 @@
   "legacyAST": {
     "absolutePath": "/Users/mwilliams/Google Drive/Projects/PodOne/Technology/eos21/blackhole/contracts/TestERC20Token.sol",
     "exportedSymbols": {
-      "ERC20Token": [
-        520
-      ]
+      "ERC20Token": [520]
     },
     "id": 521,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 498,
-        "literals": [
-          "solidity",
-          "^",
-          "0.4",
-          ".22"
-        ],
+        "literals": ["solidity", "^", "0.4", ".22"],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
       },
@@ -732,29 +701,12 @@
             "src": "83:12:5"
           }
         ],
-        "contractDependencies": [
-          549,
-          809,
-          603,
-          769,
-          1036,
-          1093,
-          1268
-        ],
+        "contractDependencies": [549, 809, 603, 769, 1036, 1093, 1268],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 520,
-        "linearizedBaseContracts": [
-          520,
-          1268,
-          1093,
-          603,
-          1036,
-          769,
-          809,
-          549
-        ],
+        "linearizedBaseContracts": [520, 1268, 1093, 603, 1036, 769, 809, 549],
         "name": "ERC20Token",
         "nodeType": "ContractDefinition",
         "nodes": [
